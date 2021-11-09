@@ -1,0 +1,15 @@
+/****************
+*** DEFAULTS
+*****************/
+* { margin: 0px; padding: 0px; }
+
+html { 
+    height: 100%; 
+    box-sizing: border-box;
+    background: url(../images/Illustration83.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
