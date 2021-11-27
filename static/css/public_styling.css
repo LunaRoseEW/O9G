@@ -166,5 +166,21 @@
 	padding: 10px;
 }
 
+.footer a {
+	color: #70726F;
+	font-size: 20px;
+	padding: 10px;
+	border-right: 1px solid #70726F;
+	transition: all .5s ease;
+  }
+  .footer a:first-child {
+	border-left: 1px solid #70726F;
+  }
+  .footer a:hover {
+	color: white;
+  }
+  
+
+
 
 

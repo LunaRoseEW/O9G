@@ -8,12 +8,14 @@
 <?php require_once(ROOT_PATH . '/includes/head_section.php') ?>
 	<title>Obnoxious 9 Games| Home </title>
 </head>
-<body>
-	<!-- container - wraps whole page -->
-	<div class="container">
+<body class="d-flex flex-column min-vh-100">
+
 		<!-- navbar -->
         <?php include(ROOT_PATH . '/includes/navbar.php') ?>       
 		<!-- // navbar -->
+
+	<!-- container - wraps whole page -->
+	<div class="container">
 
 		<!-- Page content -->
 		<div class="content">
