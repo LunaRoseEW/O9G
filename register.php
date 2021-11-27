@@ -6,11 +6,12 @@
 
 <title>Obnoxious 9 Games | Sign up </title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+		<!-- Navbar -->
+			<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
+		<!-- // Navbar -->
 <div class="container">
-	<!-- Navbar -->
-		<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
-	<!-- // Navbar -->
+
 
 	<div style="width: 40%; margin: 20px auto;">
 		<form method="post" action="register.php" >
