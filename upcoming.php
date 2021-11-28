@@ -10,6 +10,21 @@
 		<!-- // Navbar -->
 <div class="container">
 
+    <div class="content">
+        <h1 class="content-title">Upcoming Features</h1>
+        <hr>
+        <ul>
+            <li>Database</li>
+            <li>Card Image on Hover</li>
+            <li>More Robust Decklist feature</li>
+            <li>Upcoming Events</li>
+            <li>Store</li>
+            <li>Buylist</li>
+            <li>Price Alerts</li>
+            <li>Deck Visuals</li>
+        </ul>
+    </div>
+
 </div>
 <!-- // container -->
 <!-- Footer -->
