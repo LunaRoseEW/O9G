@@ -75,6 +75,17 @@
 	right: 5px; bottom: 5px;
 }
 
+.content-title {
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+}
+
+.content-title:hover {
+	overflow: visible;
+	background: white;
+}
+
 /* * * * * * * * *
 * SINGLE PAGE 
 * * * * * * * * */
