@@ -1,6 +1,25 @@
 <?php  include('config.php'); ?>
 <?php include('includes/head_section.php'); ?>
 
+<?php
+	$type = 'Top';
+if (isset($_GET['type'])) {
+	$type = $_GET['type'];
+}
+	$sql = "SELECT * FROM deck WHERE deck_type='$type' ORDER BY updated_at LIMIT 50;";
+	
+	$result = mysqli_query($conn, $sql);
+	$decks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	$html = '';
+
+	foreach($decks as $deck){
+		$html .= "<button type='button' class='block' id=" . $deck['id'] 
+		. " > " . $deck['name'] . " </button>";
+	}
+
+?>
+
 <title>Obnoxious 9 Games | Decklists </title>
 </head>
 
@@ -8,6 +27,16 @@
 		<!-- Navbar -->
 			<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 		<!-- // Navbar -->
+
+<form method="get">
+	<button type="submit" name="type" value="Top">Event Top</button>
+	<button type="submit" name="type" value="User">User Submitted</button>
+</form>
+<p></p>
+<form method="post">
+<?php echo $html; ?>
+</form>
+
 <div class="container">
 
 </div>
