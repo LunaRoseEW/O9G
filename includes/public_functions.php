@@ -86,7 +86,7 @@ function getPost($slug){
 function getAllTopics()
 {
 	global $conn;
-	$sql = "SELECT * FROM topics";
+	$sql = "SELECT * FROM topic";
 	$result = mysqli_query($conn, $sql);
 	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	return $topics;
