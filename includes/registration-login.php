@@ -20,7 +20,7 @@
 
 		// Ensure that no user is registered twice. 
 		// the email and usernames should be unique
-		$user_check_query = "SELECT * FROM users WHERE username='$username' 
+		$user_check_query = "SELECT * FROM user WHERE username='$username' 
 								OR email='$email' LIMIT 1";
 
 		$result = mysqli_query($conn, $user_check_query);
@@ -37,7 +37,7 @@
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (username, email, password, created_at, updated_at) 
+			$query = "INSERT INTO user (username, email, password, created_at, updated_at) 
 					  VALUES('$username', '$email', '$password', now(), now())";
 			mysqli_query($conn, $query);
 
@@ -71,7 +71,7 @@
 		if (empty($password)) { array_push($errors, "Password required"); }
 		if (empty($errors)) {
 			$password = md5($password); // encrypt password
-			$sql = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
+			$sql = "SELECT * FROM user WHERE username='$username' and password='$password' LIMIT 1";
 
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
@@ -113,7 +113,7 @@
 	function getUserById($id)
 	{
 		global $conn;
-		$sql = "SELECT * FROM users WHERE id=$id LIMIT 1";
+		$sql = "SELECT * FROM user WHERE id=$id LIMIT 1";
 
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
