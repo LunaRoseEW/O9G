@@ -5,7 +5,7 @@
 function getPublishedPosts() {
 	// use global $conn object in function
 	global $conn;
-	$sql = "SELECT * FROM posts WHERE published=true";
+	$sql = "SELECT * FROM post WHERE published=true";
 	$result = mysqli_query($conn, $sql);
 	// fetch all posts as an associative array called $posts
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -23,7 +23,7 @@ function getPublishedPosts() {
 * * * * * * * * * * * * * * */
 function getPostTopic($post_id){
 	global $conn;
-	$sql = "SELECT * FROM topics WHERE id=
+	$sql = "SELECT * FROM topic WHERE id=
 			(SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$topic = mysqli_fetch_assoc($result);
@@ -35,7 +35,7 @@ function getPostTopic($post_id){
 * * * * * * * * * * * * * * * * */
 function getPublishedPostsByTopic($topic_id) {
 	global $conn;
-	$sql = "SELECT * FROM posts ps 
+	$sql = "SELECT * FROM post ps 
 			WHERE ps.id IN 
 			(SELECT pt.post_id FROM post_topic pt 
 				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 

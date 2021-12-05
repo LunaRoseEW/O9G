@@ -113,7 +113,7 @@
 	function getUserById($id)
 	{
 		global $conn;
-		$sql = "SELECT * FROM users WHERE id=$id LIMIT 1";
+		$sql = "SELECT * FROM user WHERE id=$id LIMIT 1";
 
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
