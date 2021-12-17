@@ -11,7 +11,7 @@
 			<form action="<?php echo BASE_URL . 'index.php'; ?>" method="post" >
 				<h2>Login</h2>
 				<div style="width: 60%; margin: 0px auto;">
-					<!--<?p hp include(ROOT_PATH . '/includes/errors.php') ?>-->
+					<?php include(ROOT_PATH . '/includes/errors.php') ?>
 				</div>
 				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
 				<input type="password" name="password"  placeholder="Password"> 

@@ -14,8 +14,8 @@ if (isset($_GET['type'])) {
 	$html = '';
 
 	foreach($decks as $deck){
-		$html .= "<button type='button' class='block' id=" . $deck['id'] 
-		. " > " . $deck['name'] . " </button>";
+		$html .= "<div class='card' style='width: 18rem' id=" . $deck['id'] 
+		. " > " . "<div class='card-body'>" . "<h6 class='card-title'>" . $deck['name'] . "</h6>" . "</div>" . " </div>";
 	}
 
 ?>

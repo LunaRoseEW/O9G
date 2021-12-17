@@ -190,6 +190,11 @@
   .footer a:hover {
 	color: white;
   }
+
+  .navbar-nav{
+	  float: right;
+	  margin: 0;
+  }
   
 
 
