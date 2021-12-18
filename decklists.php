@@ -15,7 +15,8 @@ if (isset($_GET['type'])) {
 
 	foreach($decks as $deck){
 		$html .= "<div class='col-sm-4'>" . "<div class='card h-100' style='width: 18rem' id=" . $deck['id'] 
-		. " > " . "<div class='card-body'>" . "<h6 class='card-title'>" . $deck['name'] . "</h6>" . "<a href='#' class='stretched-link'>" . "</a>" . "</div>" . "</div>" . " </div>";
+		. " > " . "<div class='card-body'>" . "<h6 class='card-title'>" . $deck['name'] . "</h6>" . 
+		"<a href='single_decklist.php?number=" . $deck['id'] . "' class='stretched-link'>" . "</a>" . "</div>" . "</div>" . " </div>";
 	}
 
 ?>
