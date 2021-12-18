@@ -14,8 +14,8 @@ if (isset($_GET['type'])) {
 	$html = '';
 
 	foreach($decks as $deck){
-		$html .= "<div class='card' style='width: 18rem' id=" . $deck['id'] 
-		. " > " . "<div class='card-body'>" . "<h6 class='card-title'>" . $deck['name'] . "</h6>" . "<a href='#' class='stretched-link'>" . "</a>" . "</div>" . " </div>";
+		$html .= "<div class='col-sm-4'>" . "<div class='card h-100' style='width: 18rem' id=" . $deck['id'] 
+		. " > " . "<div class='card-body'>" . "<h6 class='card-title'>" . $deck['name'] . "</h6>" . "<a href='#' class='stretched-link'>" . "</a>" . "</div>" . "</div>" . " </div>";
 	}
 
 ?>
@@ -34,7 +34,11 @@ if (isset($_GET['type'])) {
 </form>
 <p></p>
 <form method="post">
-<?php echo $html; ?>
+	<div class="container">
+		<div class="row">
+			<?php echo $html; ?>
+		</div>
+	</div>
 </form>
 
 <div class="container">
