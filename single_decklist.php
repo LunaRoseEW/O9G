@@ -6,19 +6,22 @@
 if (isset($_GET['number'])) {
 	$deckId = $_GET['number'];
 
-	$sql = "SELECT * FROM deck WHERE id='$deckId' ORDER BY updated_at LIMIT 1;";
-
-    $sql2 = "SELECT d.id, d.name r.qty c.id c.name FROM deck d WHERE id='$deckId' 
-    JOIN deck_card r ON d.id=" . 'r.deck$id '. 
-    "JOIN card c ON " . 'r.card$id' . "=c.id;";
+	$sql3 = 'SELECT deck.id AS deckId, deck.name AS deckName, 
+	deck_card.deck$id, deck_card.card$id, deck_card.qty, 
+	card.id AS cardId, card.name AS cardName FROM deck JOIN deck_card JOIN card 
+	WHERE deck.id = ' . $deckId . ' AND deck_card.deck$id = ' . $deckId . 
+	' AND deck_card.card$id = card.id';
 	
-	$result = mysqli_query($conn, $sql2);
-    $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	$result = mysqli_query($conn, $sql3);
+   $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$html = '';
 
     foreach($decklist as $key => $value){
-        $html.= "<div>     {$key} => {$value}     </div>";
+		$html.= "<div>     {$key} = > {$value}     </div>";
+		foreach($value as $key2 => $value2){
+			$html.= "<div>          {$key2} => {$value2}     </div>";
+		}
     }
 	
 }
@@ -33,15 +36,10 @@ if (isset($_GET['number'])) {
 			<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 		<!-- // Navbar -->
 
-<form method="get">
-	<button type="submit" name="type" value="Top">Event Top</button>
-	<button type="submit" name="type" value="User">User Submitted</button>
-</form>
 <p></p>
-<?php echo $html; ?>
 
 <div class="container">
-
+<?php echo $html; ?>
 </div>
 <!-- // container -->
 <!-- Footer -->
