@@ -21,7 +21,7 @@
 	 		<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
 			<input type="password" name="password_1" placeholder="Password">
 			<input type="password" name="password_2" placeholder="Password confirmation">
-			<button type="submit" class="btn" name="reg_user">Register</button>
+			<button type="submit" class="btn btn-primary" name="reg_user">Register</button>
 			<p>
 				Already a member? <a href="login.php">Sign in</a>
 			</p>

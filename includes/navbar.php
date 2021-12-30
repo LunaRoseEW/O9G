@@ -15,27 +15,29 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="decklists.php"><h6>Decklists</h6></a>
                         </li>
-                    </ul>
-                    <?php if (isset($_SESSION['user']['username'])) { ?>
-	                    <div class="logged_in_info">
-		|
-		                    <span><a href="logout.php">logout</a></span>
-	                    </div>
+                        <li>
+                        <?php if (isset($_SESSION['user']['username'])) { ?>
+		                    <a href="logout.php" class="btn btn-dark">logout</a>
                     <?php }else{ ?>
-	                <div class="navbar-nav">
-
-		                <div class="login_div navbar-nav">
-			                <form class="form-inline my-2 my-lg-0" action="login.php" method="post" >
-				                <h2>Login</h2>
-
-				                <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
-				                <input type="password" name="password"  placeholder="Password"> 
-				                <button class="btn btn-light" type="submit" name="login_btn">Sign in</button>
-                                <a href="register.php" class="btn btn-light ms-auto">Register</a>
-			                </form>
-		                </div>
-	                </div>
+                        <div class="btn-group">
+                        <a class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sign In
+                        </a>
+                            <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+			                    <form class="px-4 py-3" action="login.php" method="post" >
+                                    <p>Username/Email:</p>
+				                    <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
+                                    <p>Password:</p>
+				                    <input type="password" name="password"  placeholder="Password"> 
+				                    <button class="btn btn-light dropdown-item" type="submit" name="login_btn">Sign in</button>
+                                    <a href="register.php" class="dropdown-item">New here? Sign up!</a>
+			                    </form>
+                            </div>
+		                </div>  
                 <?php } ?>
+                        </li>
+                    </ul>
+
             </div>
         </div>
         </nav> 

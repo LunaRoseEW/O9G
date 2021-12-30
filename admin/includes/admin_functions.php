@@ -173,7 +173,7 @@ function deleteAdmin($admin_id) {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function getAdminUsers(){
 	global $conn, $roles;
-	$sql = "SELECT * FROM users WHERE role IS NOT NULL";
+	$sql = "SELECT * FROM user WHERE role IS NOT NULL";
 	$result = mysqli_query($conn, $sql);
 	$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -204,7 +204,7 @@ function makeSlug(String $string){
 // get all topics from DB
 function getAllTopics() {
 	global $conn;
-	$sql = "SELECT * FROM topics";
+	$sql = "SELECT * FROM topic";
 	$result = mysqli_query($conn, $sql);
 	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	return $topics;

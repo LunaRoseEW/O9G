@@ -13,7 +13,7 @@ if (isset($_GET['number'])) {
 	' AND deck_card.card$id = card.id';
 	
 	$result = mysqli_query($conn, $sql3);
-   $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$html = '';
 
