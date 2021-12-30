@@ -20,10 +20,10 @@ global $conn;
 // Admin can view all posts
 // Author can only view their posts
 if ($_SESSION['user']['role'] == "Admin") {
-$sql = "SELECT * FROM posts ORDER BY created_at DESC";
+$sql = "SELECT * FROM post ORDER BY created_at DESC";
 } elseif ($_SESSION['user']['role'] == "Author") {
 $user_id = $_SESSION['user']['id'];
-$sql = "SELECT * FROM posts WHERE user_id=$user_id ORDER BY created_at DESC";
+$sql = "SELECT * FROM post WHERE user_id=$user_id ORDER BY created_at DESC";
 }
 $result = mysqli_query($conn, $sql);
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
