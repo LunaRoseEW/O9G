@@ -7,13 +7,15 @@
 	$topics = getAllTopics();
 ?>
 <?php include('includes/head_section.php'); ?>
-<title> <?php echo $post['title'] ?> | LifeBlog</title>
+<title> <?php echo $post['title'] ?> | Obnoxious 9 Games</title>
 </head>
-<body>
-<div class="container">
+<body class="d-flex flex-column min-vh-100">
+
 	<!-- Navbar -->
-		<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
+	<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 	<!-- // Navbar -->
+
+<div class="container">
 	
 	<div class="content" >
 		<!-- Page wrapper -->
@@ -37,6 +39,7 @@
 		<!-- // Page wrapper -->
 
 		<!-- post sidebar -->
+		
 		<div class="post-sidebar">
 			<div class="card">
 				<div class="card-header">

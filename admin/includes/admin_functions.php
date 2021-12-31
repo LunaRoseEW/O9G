@@ -83,7 +83,7 @@ function createAdmin($request_values){
 	if ($password != $passwordConfirmation) { array_push($errors, "The two passwords do not match"); }
 	// Ensure that no user is registered twice. 
 	// the email and usernames should be unique
-	$user_check_query = "SELECT * FROM users WHERE username='$username' 
+	$user_check_query = "SELECT * FROM user WHERE username='$username' 
 							OR email='$email' LIMIT 1";
 	$result = mysqli_query($conn, $user_check_query);
 	$user = mysqli_fetch_assoc($result);
@@ -99,7 +99,7 @@ function createAdmin($request_values){
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$password = md5($password);//encrypt the password before saving in the database
-		$query = "INSERT INTO users (username, email, role, password, created_at, updated_at) 
+		$query = "INSERT INTO user (username, email, role, password, created_at, updated_at) 
 				  VALUES('$username', '$email', '$role', '$password', now(), now())";
 		mysqli_query($conn, $query);
 
@@ -117,7 +117,7 @@ function editAdmin($admin_id)
 {
 	global $conn, $username, $role, $isEditingUser, $admin_id, $email;
 
-	$sql = "SELECT * FROM users WHERE id=$admin_id LIMIT 1";
+	$sql = "SELECT * FROM user WHERE id=$admin_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$admin = mysqli_fetch_assoc($result);
 
@@ -149,7 +149,7 @@ function updateAdmin($request_values){
 		//encrypt the password (security purposes)
 		$password = md5($password);
 
-		$query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
+		$query = "UPDATE user SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Admin user updated successfully";
@@ -160,7 +160,7 @@ function updateAdmin($request_values){
 // delete admin user 
 function deleteAdmin($admin_id) {
 	global $conn;
-	$sql = "DELETE FROM users WHERE id=$admin_id";
+	$sql = "DELETE FROM user WHERE id=$admin_id";
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "User successfully deleted";
 		header("location: users.php");
@@ -219,14 +219,14 @@ function createTopic($request_values){
 		array_push($errors, "Topic name required"); 
 	}
 	// Ensure that no topic is saved twice. 
-	$topic_check_query = "SELECT * FROM topics WHERE slug='$topic_slug' LIMIT 1";
+	$topic_check_query = "SELECT * FROM topic WHERE slug='$topic_slug' LIMIT 1";
 	$result = mysqli_query($conn, $topic_check_query);
 	if (mysqli_num_rows($result) > 0) { // if topic exists
 		array_push($errors, "Topic already exists");
 	}
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
-		$query = "INSERT INTO topics (name, slug) 
+		$query = "INSERT INTO topic (name, slug) 
 				  VALUES('$topic_name', '$topic_slug')";
 		mysqli_query($conn, $query);
 
@@ -242,7 +242,7 @@ function createTopic($request_values){
 * * * * * * * * * * * * * * * * * * * * * */
 function editTopic($topic_id) {
 	global $conn, $topic_name, $isEditingTopic, $topic_id;
-	$sql = "SELECT * FROM topics WHERE id=$topic_id LIMIT 1";
+	$sql = "SELECT * FROM topic WHERE id=$topic_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	// set form values ($topic_name) on the form to be updated
@@ -260,7 +260,7 @@ function updateTopic($request_values) {
 	}
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
-		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
+		$query = "UPDATE topic SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Topic updated successfully";
@@ -271,7 +271,7 @@ function updateTopic($request_values) {
 // delete topic 
 function deleteTopic($topic_id) {
 	global $conn;
-	$sql = "DELETE FROM topics WHERE id=$topic_id";
+	$sql = "DELETE FROM topic WHERE id=$topic_id";
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "Topic successfully deleted";
 		header("location: topics.php");

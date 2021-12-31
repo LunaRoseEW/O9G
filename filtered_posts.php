@@ -10,11 +10,11 @@
 ?>
 	<title>Obnoxious 9 Games | Home </title>
 </head>
-<body>
-<div class="container">
-<!-- Navbar -->
+<body class="d-flex flex-column min-vh-100">
+	<!-- Navbar -->
 	<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 <!-- // Navbar -->
+<div class="container">
 <!-- content -->
 <div class="content">
 	<h2 class="content-title">
