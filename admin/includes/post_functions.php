@@ -30,7 +30,7 @@ $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $final_posts = array();
 foreach ($posts as $post) {
-$post['author'] = getPostAuthorById($post['user_id']);
+$post['author'] = getPostAuthorById($post['user$id']);
 array_push($final_posts, $post);
 }
 return $final_posts;

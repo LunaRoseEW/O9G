@@ -3,7 +3,7 @@
 	<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
 	<title>Admin | Dashboard</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<div class="header">
 		<div class="logo">
 			<a href="<?php echo BASE_URL .'admin/dashboard.php' ?>">
