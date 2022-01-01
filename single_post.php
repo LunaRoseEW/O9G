@@ -26,6 +26,7 @@
 				<h2 class="post-title">Sorry... This post has not been published</h2>
 			<?php else: ?>
 				<h2 class="post-title"><?php echo $post['title']; ?></h2>
+				<hr>
 				<div class="post-body-div">
 					<?php echo html_entity_decode($post['body']); ?>
 				</div>
@@ -42,7 +43,7 @@
 		
 		<div class="post-sidebar">
 			<div class="card">
-				<div class="card-header">
+				<div class="card-header bg-dark">
 					<h2>Topics</h2>
 				</div>
 				<div class="card-content">
