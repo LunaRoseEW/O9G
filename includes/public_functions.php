@@ -5,7 +5,7 @@
 function getPublishedPosts() {
 	// use global $conn object in function
 	global $conn;
-	$sql = "SELECT * FROM post WHERE published=true";
+	$sql = "SELECT * FROM post WHERE published=true ORDER BY created_at DESC";
 	$result = mysqli_query($conn, $sql);
 	// fetch all posts as an associative array called $posts
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -39,7 +39,7 @@ function getPublishedPostsByTopic($topic_id) {
 			WHERE ps.id IN 
 			(SELECT pt.".'post$id'." FROM post_topic pt 
 				WHERE pt.".'topic$id'."=$topic_id GROUP BY pt.".'post$id'." 
-				HAVING COUNT(1) = 1)";
+				HAVING COUNT(1) = 1) ORDER BY created_at DESC";
 	$result = mysqli_query($conn, $sql);
 	// fetch all posts as an associative array called $posts
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
