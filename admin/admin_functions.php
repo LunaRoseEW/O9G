@@ -67,13 +67,13 @@ if (isset($_GET['delete-topic'])) {
 * * * * * * * * * * * * * * * * * * * * * * */
 function createAdmin($request_values){
 	global $conn, $errors, $role, $username, $email;
-	$username = esc($request_values['username']);
-	$email = esc($request_values['email']);
-	$password = esc($request_values['password']);
-	$passwordConfirmation = esc($request_values['passwordConfirmation']);
+	$username = sanitizeInput(esc($request_values['username']));
+	$email = sanitizeInput(esc($request_values['email']));
+	$password = sanitizeInput(esc($request_values['password']));
+	$passwordConfirmation = sanitizeInput(esc($request_values['passwordConfirmation']));
 
 	if(isset($request_values['role'])){
-		$role = esc($request_values['role']);
+		$role = sanitizeInput(esc($request_values['role']));
 	}
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { array_push($errors, "Uhmm...We gonna need the username"); }
@@ -137,12 +137,12 @@ function updateAdmin($request_values){
 	$isEditingUser = false;
 
 
-	$username = esc($request_values['username']);
-	$email = esc($request_values['email']);
-	$password = esc($request_values['password']);
-	$passwordConfirmation = esc($request_values['passwordConfirmation']);
+	$username = sanitizeInput(esc($request_values['username']));
+	$email = sanitizeInput(esc($request_values['email']));
+	$password = sanitizeInput(esc($request_values['password']));
+	$passwordConfirmation = sanitizeInput(esc($request_values['passwordConfirmation']));
 	if(isset($request_values['role'])){
-		$role = $request_values['role'];
+		$role = sanitizeInput($request_values['role']);
 	}
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
@@ -160,7 +160,8 @@ function updateAdmin($request_values){
 // delete admin user 
 function deleteAdmin($admin_id) {
 	global $conn;
-	$sql = "DELETE FROM user WHERE id=$admin_id";
+	$temp = sanitizeInput($admin_id);
+	$sql = "DELETE FROM user WHERE id=$temp";
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "User successfully deleted";
 		header("location: users.php");
@@ -211,7 +212,7 @@ function getAllTopics() {
 }
 function createTopic($request_values){
 	global $conn, $errors, $topic_name;
-	$topic_name = esc($request_values['topic_name']);
+	$topic_name = sanitizeInput(esc($request_values['topic_name']));
 	// create slug: if topic is "Life Advice", return "life-advice" as slug
 	$topic_slug = makeSlug($topic_name);
 	// validate form
@@ -250,8 +251,8 @@ function editTopic($topic_id) {
 }
 function updateTopic($request_values) {
 	global $conn, $errors, $topic_name, $topic_id;
-	$topic_name = esc($request_values['topic_name']);
-	$topic_id = esc($request_values['topic_id']);
+	$topic_name = sanitizeInput(esc($request_values['topic_name']));
+	$topic_id = sanitizeInput(esc($request_values['topic_id']));
 	// create slug: if topic is "Life Advice", return "life-advice" as slug
 	$topic_slug = makeSlug($topic_name);
 	// validate form
@@ -271,7 +272,8 @@ function updateTopic($request_values) {
 // delete topic 
 function deleteTopic($topic_id) {
 	global $conn;
-	$sql = "DELETE FROM topic WHERE id=$topic_id";
+	$temp = sanitizeInput($topic_id);
+	$sql = "DELETE FROM topic WHERE id=$temp";
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "Topic successfully deleted";
 		header("location: topics.php");

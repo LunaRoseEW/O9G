@@ -1,3 +1,4 @@
+<?php require_once('includes/security_functions.php') ?>
 <?php 
 	// variable declaration
 	$username = "";
@@ -7,10 +8,10 @@
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
 		// receive all input values from the form
-		$username = esc($_POST['username']);
-		$email = esc($_POST['email']);
-		$password_1 = esc($_POST['password_1']);
-		$password_2 = esc($_POST['password_2']);
+		$username = sanitizeInput(esc($_POST['username']));
+		$email = sanitizeInput(esc($_POST['email']));
+		$password_1 = sanitizeInput(esc($_POST['password_1']));
+		$password_2 = sanitizeInput(esc($_POST['password_2']));
 
 		// form validation: ensure that the form is correctly filled
 		if (empty($username)) {  array_push($errors, "Uhmm...We gonna need your username"); }
@@ -64,8 +65,8 @@
 
 	// LOG USER IN
 	if (isset($_POST['login_btn'])) {
-		$username = esc($_POST['username']);
-		$password = esc($_POST['password']);
+		$username = sanitizeInput(esc($_POST['username']));
+		$password = sanitizeInput(esc($_POST['password']));
 
 		if (empty($username)) { array_push($errors, "Username required"); }
 		if (empty($password)) { array_push($errors, "Password required"); }
