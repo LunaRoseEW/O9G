@@ -1,6 +1,7 @@
 <?php require_once('config.php') ?>
 <?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
 <?php require_once( ROOT_PATH . '/includes/registration-login.php') ?>
+<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
 
 <!-- Retrieve all posts from database  -->
 <?php $posts = getPublishedPosts(); ?>
@@ -39,7 +40,7 @@
 					<div class="card-body">
 						<h3 class="card-title"><?php echo $post['title'] ?></h3>	
 					</div>
-					<span class="card-footer"><?php echo date("F j", strtotime($post["created_at"])); ?> by:<?php echo $post['user$id']; ?></span>	
+					<span class="card-footer"><?php echo date("F j", strtotime($post["created_at"])); ?> by:<?php echo getPostAuthorById($post['user$id']); ?></span>	
 					</div>
 				</div>
 			<?php endforeach ?>	
