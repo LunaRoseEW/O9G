@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container-fluid">
-                <a class="navbar-nav navbar-brand mb-0 h1" href="index.php"><h3>Obnoxious 9 Games</h3></a>
+                <a class="navbar-nav navbar-brand mb-0 h1" href="index.php">
+                    <img src="static/images/logoo9g_cropped.png" alt="Obnoxious 9 Games logo" width="400" height="70">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
