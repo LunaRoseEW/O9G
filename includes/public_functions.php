@@ -1,4 +1,3 @@
-<?php require_once('includes/security_functions'); ?>
 <?php 
 /* * * * * * * * * * * * * * *
 * Returns all published posts
@@ -24,7 +23,7 @@ function getPublishedPosts() {
 * * * * * * * * * * * * * * */
 function getPostTopic($post_id){
 	global $conn;
-	$temp = sanitizeInput($post_id);
+	$temp = $post_id;
 	$sql = "SELECT * FROM topic WHERE id=
 			(SELECT ".'topic$id'." FROM post_topic WHERE ".'post$id'."=$temp) LIMIT 1";
 	$result = mysqli_query($conn, $sql);
@@ -37,7 +36,7 @@ function getPostTopic($post_id){
 * * * * * * * * * * * * * * * * */
 function getPublishedPostsByTopic($topic_id) {
 	global $conn;
-	$temp = sanitizeInput($topic_id);
+	$temp = $topic_id;
 	$sql = "SELECT * FROM post ps 
 			WHERE ps.id IN 
 			(SELECT pt.".'post$id'." FROM post_topic pt 
@@ -59,7 +58,7 @@ function getPublishedPostsByTopic($topic_id) {
 * * * * * * * * * * * * * * * * */
 function getTopicNameById($id) {
 	global $conn;
-	$temp = sanitizeInput($id);
+	$temp = $id;
 	$sql = "SELECT name FROM topic WHERE id=$temp";
 	$result = mysqli_query($conn, $sql);
 	$topic = mysqli_fetch_assoc($result);
@@ -72,7 +71,7 @@ function getTopicNameById($id) {
 function getPost($slug){
 	global $conn;
 	// Get single post slug
-	$post_slug = sanitizeInput($_GET['post-slug']);
+	$post_slug = $_GET['post-slug'];
 	$sql = "SELECT * FROM post WHERE slug='$post_slug' AND published=true";
 	$result = mysqli_query($conn, $sql);
 
