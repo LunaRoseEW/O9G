@@ -196,7 +196,12 @@
 	  margin: 0;
   }
 
+  li .pink:hover{
+	  color: #ff00a5!important;
+  }
 
-
+  li .green:hover{
+	color: #2dff00 !important;
+}
 
 

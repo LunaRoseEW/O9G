@@ -15,6 +15,7 @@
         <?php include(ROOT_PATH . '/includes/navbar.php') ?>       
 		<!-- // navbar -->
 
+
 	<!-- container - wraps whole page -->
 	<div class="container">
 
@@ -26,7 +27,7 @@
 	<div class="row">
 <?php foreach ($posts as $post): ?>
 	<div class="col-sm-4 mb-4">
-	<div class="card shadow rounded border border-2 h-100">
+	<div class="card shadow-lg rounded border border-1 border-secondary h-100">
 		<img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="card_image_top rounded h-50" alt="">
         <!-- Added this if statement... -->
 		<?php if (isset($post['topic']['name'])): ?>
