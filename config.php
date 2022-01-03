@@ -10,6 +10,9 @@
 	if(!$conn){
 		$conn = mysqli_connect("localhost", "root", $cred2, "O9G");
 	}
+			if(!$conn){
+		$conn = mysqli_connect("localhost", "obnoxious9", $cred1, "O9G");
+	}
 	
 	if (!$conn) {
 		die("Error connecting to database: " . mysqli_connect_error());

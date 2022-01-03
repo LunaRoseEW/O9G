@@ -36,9 +36,8 @@ function getPostTopic($post_id){
 * * * * * * * * * * * * * * * * */
 function getPublishedPostsByTopic($topic_id) {
 	global $conn;
-	$temp = $topic_id;
 	$sql = "SELECT * FROM post ps 
-			WHERE ps.id IN 
+			WHERE published=true AND ps.id IN 
 			(SELECT pt.".'post$id'." FROM post_topic pt 
 				WHERE pt.".'topic$id'."=$topic_id GROUP BY pt.".'post$id'." 
 				HAVING COUNT(1) = 1) ORDER BY created_at DESC";
