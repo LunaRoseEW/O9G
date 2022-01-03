@@ -77,13 +77,13 @@ function createPost($request_values)
 {
 global $conn, $errors, $user_id, $title, $featured_image, $topic_id, $body, $published;
 $user_id = $_SESSION['user']['id'];
-$title = sanitizeInput(esc($request_values['title']));
-$body = htmlentities(sanitizeInput(esc($request_values['body'])));
+$title = esc($request_values['title']);
+$body = htmlentities(esc($request_values['body']));
 if (isset($request_values['topic_id'])) {
-$topic_id = sanitizeInput(esc($request_values['topic_id']));
+$topic_id = esc($request_values['topic_id']);
 }
 if (isset($request_values['publish'])) {
-$published = sanitizeInput(esc($request_values['publish']));
+$published = esc($request_values['publish']);
 }
 // create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
 $post_slug = makeSlug($title);
@@ -142,11 +142,11 @@ function updatePost($request_values)
 {
 global $conn, $errors, $post_id, $title, $featured_image, $topic_id, $body, $published;
 
-$title = sanitizeInput(esc($request_values['title']));
-$body = sanitizeInput(esc($request_values['body']));
-$post_id = sanitizeInput(esc($request_values['post_id']));
+$title = esc($request_values['title']);
+$body = esc($request_values['body']);
+$post_id = esc($request_values['post_id']);
 if (isset($request_values['topic_id'])) {
-$topic_id = sanitizeInput(esc($request_values['topic_id']));
+$topic_id = esc($request_values['topic_id']);
 }
 // create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
 $post_slug = makeSlug($title);
