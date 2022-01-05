@@ -16,14 +16,14 @@ if (isset($_GET['number'])) {
     $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$html = '';
+	
+	$name = $decklist[0]['deckName'];
 
     foreach($decklist as $key => $value){
-		$html.= "<div>     {$key} = > {$value}     </div>";
-		foreach($value as $key2 => $value2){
-			$html.= "<div>          {$key2} => {$value2}     </div>";
-		}
-    }
+		//$html.= "<div>     {$key} = > {$value}     </div>";
+		$html.= $value['qty'] . " " . $value['cardName'] . "<br>";
 	
+}
 }
 
 ?>
@@ -36,10 +36,18 @@ if (isset($_GET['number'])) {
 			<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 		<!-- // Navbar -->
 
-<p></p>
-
-<div class="container">
-<?php echo $html; ?>
+<div class="container mt-5">
+	<div class='row'>
+		<div class="col-sm-5">
+			<div class="card shadow-lg rounded border border-1 border-secondary h-100">
+				<h3 class="card-title"><?php echo $name; ?></h3>
+				<hr>
+				<div class='list-unstyled'>
+					<?php echo $html; ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- // container -->
 <!-- Footer -->
