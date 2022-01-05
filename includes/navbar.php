@@ -24,6 +24,7 @@
                                     <li><a class="dropdown-item pink" href="/filtered_posts.php?topic=8">Casual</a></li>
                                     <li><a class="dropdown-item green" href="/filtered_posts.php?topic=3">Finance</a></li>
                                     <li><a class="dropdown-item pink" href="/filtered_posts.php?topic=2">Lore</a></li>
+                                    <li><a class="dropdown-item green" href="/filtered_posts.php?topic=9">Card of the Day</a></li>
                                 </ul>
 		                </div>  
                         </li>
