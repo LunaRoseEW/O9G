@@ -204,9 +204,7 @@
 	color: #2dff00 !important;
   } 
 
-  body {
-	background-image: url("./static/images/sidebar_image.png");
-	background-color: #2dff00;
+  /*body {
+	background-image: url("/static/images/sidebar_image.png");
    }
-
-
+*/

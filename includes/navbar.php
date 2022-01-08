@@ -29,7 +29,7 @@
 		                </div>  
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active pink" href="decklists.php"><h6>Decklists</h6></a>
+                            <a class="nav-link active pink" href="text_decklists.php"><h6>Decklists</h6></a>
                         </li>
                         <li>
                         <?php if (isset($_SESSION['user']['username'])) { ?>

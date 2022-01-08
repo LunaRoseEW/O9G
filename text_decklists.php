@@ -14,7 +14,7 @@ if (isset($_GET['type'])) {
 	$html = '';
 
 	foreach($decks as $deck){
-		$html .= "<div class='col-sm-4'>" . "<div class='card shadow-lg rounded border border-1 border-secondary h-100' ' id=" . $deck['id'] 
+		$html .= "<div class='col-sm-4 mb-3'>" . "<div class='card shadow-lg rounded border border-1 border-secondary h-100' ' id=" . $deck['id'] 
 		. " > " . "<div class='card-body'>" . "<h5 class='card-title'>" . $deck['name'] . "</h5>" . "<div class='card-text'>" . "</div>" . "<div class='card-footer'>" . $deck['created_at']  . "</div>"  .
 		"<a href='single_text_decklist.php?number=" . $deck['id'] . "' class='stretched-link'>" . "</a>" . "</div>" . "</div>" . " </div>";
 	}
@@ -32,6 +32,7 @@ if (isset($_GET['type'])) {
 <form method="get">
 	<button class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="Top">Event Top</button>
 	<button class="btn btn-dark mt-3 ms-3 green" type="submit" name="type" value="User">User Submitted</button>
+	<a href="/create_text_decklist.php" class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="User">Create Deck</a>
 </form>
 <p></p>
 <form method="post">

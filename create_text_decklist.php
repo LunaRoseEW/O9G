@@ -1,8 +1,6 @@
 <?php   
     declare(strict_types=1);
     session_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
 
     if ( !isset( $_SESSION['user'] ) ) {
         // If username variable is not set, then send them back to the login form.
@@ -71,7 +69,7 @@ etc...';
             
         if ( !$hasFormEmptyFields ) {
                 $lastId = createTextDeck($_SESSION['user']['id'], $name, $author, $type, $public, $cardlist);
-                //header("Location: " . BASE_URL . "/single_text_decklist.php?number=" . $lastId);
+                header("Location: " . BASE_URL . "/single_text_decklist.php?number=" . $lastId);
                 
                 
         } else {
@@ -92,42 +90,44 @@ etc...';
             <?php include( realpath(dirname(__FILE__)) . '/includes/navbar.php'); ?>
         <!-- // Navbar -->
 
-<div>
-    <header>
-        <h1>Create New Deck</h1>
+<div class="container mt-3 mb-3">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow-lg rounded border border-1 border-secondary h-100">
+    <header class="mt-3">
+        <h1 class="text-center">Create New Deck</h1>
     </header>
 
     <form action="<?php echo $phpScript; ?>" method="POST">
         <div>
-            <p> 
-                <label for="public">Make this deck public?</label>
-                <input type="checkbox" id="public" name="public" value="<?php echo $public; ?>" >
-            </p>
-            <p> 
-                <label for="name" >Deck Name</label>
-                <span> *</span>
-                <input id="name" name="name" placeholder="name" value="<?php echo $name; ?>" required>
-            </p>
-            <p> 
-                <label for="author">Author</label>
-                <span> *</span>
-                <input id="author" name="author" placeholder="author" value="<?php echo $author; ?>" required>
-            </p>
-            <p> 
-                <label for="cardlist"></label>
-                <textarea id="cardlist" name="cardlist" cols="80" rows="16" placeholder="<?php echo $deck_placeholder; ?>" value="<?php echo $cardlist; ?>"></textarea>
-            </p>
+            <div class="row">
+            <div class="col mb-3 ms-3"> 
+                <label class="form-label" for="name" >Deck Name *</label>
+                <input class="form-control" id="name" name="name" placeholder="name" value="<?php echo $name; ?>" required>
+            </div>
+            <div class="col mb-3 me-3"> 
+                <label class="form-label" for="author">Author *</label>
+                <input class="form-control" id="author" name="author" placeholder="author" value="<?php echo $author; ?>" required>
+            </div>
+            </div>
+            <div class="mb-3 ms-3 me-3"> 
+                <label class="form-label" for="cardlist"></label>
+                <textarea class="form-control" id="cardlist" name="cardlist" cols="80" rows="16" placeholder="<?php echo $deck_placeholder; ?>" value="<?php echo $cardlist; ?>"></textarea>
+            </div>
         </div>
 
         <!-- Edit buttons -->
         <div>
             <p><?php echo $formError;?></p>
-            <p>
-                <button id="submit" type="submit" name="submit" value="submit" >Save</button>  
-                <a href="/O9G/decklists.php" name="submit" value=0>Cancel</a> 
-            </p> 
+            <div class="mb-3">
+                <button class="btn btn-dark ms-3" id="submit" type="submit" name="submit" value="submit" >Save</button>  
+                <a class="btn btn-warning" href="/decklists.php" name="submit" value=0>Cancel</a> 
+            </div> 
         </div>
     </form>
 </div> 
+</div>
+</div>
+</div>
 
 <?php include( realpath(dirname(__FILE__)) . '/includes/footer.php'); ?>
