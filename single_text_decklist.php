@@ -10,6 +10,7 @@ if (isset($_GET['number'])) {
 
 	$result = mysqli_query($conn, $sql);
     $decklist = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
 
     foreach($decklist as $key => $value){
 		$html.= "<div>     {$key} = > {$value}   </div>";
