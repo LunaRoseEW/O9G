@@ -65,13 +65,14 @@
 	// LOG USER IN
 	if (isset($_POST['login_btn'])) {
 		$username = esc($_POST['username']);
+		$email = esc($_POST['email']);
 		$password = esc($_POST['password']);
 
-		if (empty($username)) { array_push($errors, "Username required"); }
+		if (empty($email)) { array_push($errors, "Email required"); }
 		if (empty($password)) { array_push($errors, "Password required"); }
 		if (empty($errors)) {
 			$password = md5($password); // encrypt password
-			$sql = "SELECT * FROM user WHERE username='$username' and password='$password' LIMIT 1";
+			$sql = "SELECT * FROM user WHERE email='$email' and password='$password' LIMIT 1";
 
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {

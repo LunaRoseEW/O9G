@@ -9,8 +9,11 @@
 			<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 		<!-- // Navbar -->
 <div class="container">
-
-    <div class="content">
+    <div class='row justify-content-center mt-5'>
+    <div class='col-sm-8'>
+    <div class="">
+        <div class='card shadow-lg rounded-3'>
+            <div class='ms-3'>
         <h1 class="content-title">Upcoming Features</h1>
         <hr>
         <ul>
@@ -23,8 +26,11 @@
             <li>Price Alerts</li>
             <li>Deck Visuals</li>
         </ul>
+</div>
     </div>
-
+</div>
+</div>
+</div>
 </div>
 <!-- // container -->
 <!-- Footer -->

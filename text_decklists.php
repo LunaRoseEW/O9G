@@ -30,9 +30,9 @@ if (isset($_GET['type'])) {
 		<!-- // Navbar -->
 
 <form method="get">
-	<button class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="Top">Event Top</button>
-	<button class="btn btn-dark mt-3 ms-3 green" type="submit" name="type" value="User">User Submitted</button>
-	<a href="/create_text_decklist.php" class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="User">Create Deck</a>
+	<button style="font-family: 'Major Mono Display', monospace;" class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="Top">event top</button>
+	<button style="font-family: 'Major Mono Display', monospace;" class="btn btn-dark mt-3 ms-3 green" type="submit" name="type" value="User">user submitted</button>
+	<a style="font-family: 'Major Mono Display', monospace;" href="/create_text_decklist.php" class="btn btn-dark mt-3 ms-3 pink" type="submit" name="type" value="User">create deck</a>
 </form>
 <p></p>
 <form method="post">

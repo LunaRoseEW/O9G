@@ -8,19 +8,23 @@
 			 <?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 		<!-- // Navbar -->
 <div class="container">
-
-	<div style="width: 40%; margin: 20px auto;">
-		<form method="post" action="login.php" >
-			<h2>Login</h2>
+	<div class='row justify-content-center mt-5'>
+	<div class='col-sm-4'>
+		<div class='card shadow-lg rounded-3'>
+		<form method="post" action="login.php" class='ms-5' >
+			<h2 class='mt-2'>Login</h2>
 			<?php include(ROOT_PATH . '/includes/errors.php') ?>
-			<input type="text" name="username" value="<?php echo $username; ?>" value="" placeholder="Username">
+			<input class='mb-2' type="text" name="email" value="<?php echo $email; ?>" value="" placeholder="email">
 			<input type="password" name="password" placeholder="Password">
-			<button type="submit" class="btn btn-primary" name="login_btn">Login</button>
+			<br>
+			<button style="font-family: 'Major Mono Display', monospace;" type="submit" class="btn btn-dark mt-2 mb-2" name="login_btn">login</button>
 			<p>
 				Not yet a member? <a href="register.php">Sign up</a>
 			</p>
 		</form>
 	</div>
+</div>
+</div>
 </div>
 <!-- // container -->
 

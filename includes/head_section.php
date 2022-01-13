@@ -3,6 +3,11 @@
 <head>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Noto+Serif|Tangerine" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Major+Mono+Display">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
 	
 	<!-- Add icon library -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
